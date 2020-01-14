@@ -1,5 +1,59 @@
 \section{Einleitung}
 
 \begin{frame}
-    \frametitle{Einleitung}
+    \frametitle{Einleitung 1}
+
+    
+
+    \begin{itemize}
+        \item DNA: (A)denin, (T)hymin, (G)uanin und (C)ytosin
+        \item Sequencing-Reads: Länge von 
+        \item Datensätze: FASTQ, FASTA
+    \end{itemize}
+
+    
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Einleitung 2}
+
+    \begin{itemize}
+        \item Viral coinfection analysis using a MinHash toolkit
+        \item Human papillomavirus (HPV)
+        \item HPV hat viele unterschiedliche Typen bzw. Abstammungslinien
+        \item Davon sind nur einige hoch krebserzeugend
+        \item Co-Infektionen verschiedener Abstammungslinien sind üblich
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Einleitung 3}
+
+    
+    \begin{itemize}
+        \item rkmh: klassifiziert reads aus FASTQ-Dateien
+        \item Jeder read wird mit einer Menge von Referenzgenomen verglichen
+        \item rkmh weist jedem read das Referenzgenom zu mit dem es die höchste Übereinstimmung hat
+        \item Für den Vergleich bedient sich rkmh der MinHash-Methode aus dem Bereich der Textanalyse
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Einleitung 4}
+
+    
+    \begin{tikzpicture}
+
+        \def \n {1,2,3}
+        \def \radius {3cm}
+        \def \margin {8} % margin in angles, depends on the radius
+        
+        \foreach \c [count=\x from 0] in {{1,f},{2,o},{3,o},{4,b},{5,a},{6,r}} 
+        {
+            \node[draw, circle] at ({360/\n * (\x - 1)}:\radius) {$\c$};
+            \draw[->, >=latex] ({360/\n * (\x - 1)+\margin}:\radius) 
+              arc ({360/\n * (\x - 1)+\margin}:{360/\n * (\x)-\margin}:\radius);
+        }
+    \end{tikzpicture}
 \end{frame}

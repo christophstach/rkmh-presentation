@@ -35,7 +35,7 @@
             {
                 "name": "Build LaTeX",
                 "color": "#8f3200",
-                "command": "latexmk -pvc -pdf -shell-escape main.tex",
+                "command": "rm main.bcf && latexmk -pvc -pdf -shell-escape main.tex",
                 "singleInstance": true,
             },
         ]
