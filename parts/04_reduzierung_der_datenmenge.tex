@@ -1,19 +1,30 @@
-\section{Reduzierung der Datenmenge}
+\section{MinHash}
 
-\subsection{MinHash}
-
-\begin{frame}
-    \frametitle{MinHash}
+\begin{frame}{MinHash I \cite{minhash}}
+    \begin{itemize}
+        \item Algorithmus aus der Textanalyse
+        \item Wurde erstmalig verwendet um eine große Menge von Webseiten miteinader zu vergleichen
+        \item Arbeitet mit k-shingles
+        \item Nährt den Jaccard-Koeffizienten
+    \end{itemize}
 \end{frame}
 
-\subsection{Hash-Funktionen}
-
-\begin{frame}
-    \frametitle{Hash-Funktionen}
-\end{frame}
-
-\subsection{Signatur-Generierung}
-
-\begin{frame}
-    \frametitle{Signatur-Generierung}
+\begin{frame}{MinHash I \cite{minhash}}
+    Die Mengen der geshingelten werden als Sparse-Matrix $ M $ dargestellt.
+    
+    \begin{example}
+        \begin{equation*}
+            M = 
+            \bbordermatrix{
+                & D_1 & D_2 \\
+                ATG & 1 & 0 \\
+                TGG & 1 & 1 \\
+                GGC & 1 & 1 \\
+                GCA & 1 & 1 \\
+                CAT & 1 & 0 \\
+                CAG & 0 & 1 \\
+                AGT & 0 & 1
+            }
+        \end{equation*}
+    \end{example}
 \end{frame}

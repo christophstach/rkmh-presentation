@@ -14,10 +14,9 @@
 \usepackage{csquotes}
 \usepackage{caption}
 \usepackage{subcaption}
-\usepackage{amssymb}
+\usepackage{kbordermatrix}
 \usepackage{amsmath}
-\usepackage{tikz}
-\usepackage{pgfplots}
+\usepackage{etoolbox}
 
 
 \addbibresource{references/images.bib}
@@ -30,7 +29,12 @@
 \definecolor{danger}{RGB}{220, 53, 69}
 \newenvironment{longlisting}{\captionsetup{type=listing}}{}
 
-\usetheme[progressbar=frametitle]{metropolis}
+\usetheme[progressbar=foot,sectionpage=none,numbering=fraction,block=fill]{metropolis}
+
+\let\bbordermatrix\kbordermatrix
+\patchcmd{\bbordermatrix}{8.75}{4.75}{}{}
+\patchcmd{\bbordermatrix}{\left(}{\left[}{}{}
+\patchcmd{\bbordermatrix}{\right)}{\right]}{}{}
 
 
 \definecolor{HTWGreen}{HTML}{76B900}
@@ -55,6 +59,12 @@
 
 \setminted[cpp]{,
     fontsize=\footnotesize,
+    linenos,
+    breaklines
+}
+
+\setminted[text]{,
+    fontsize=\tiny,
     linenos,
     breaklines
 }

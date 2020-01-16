@@ -1,59 +1,75 @@
 \section{Einleitung}
 
-\begin{frame}
-    \frametitle{Einleitung 1}
-
-    
-
+\begin{frame}{Einleitung}
     \begin{itemize}
         \item DNA: (A)denin, (T)hymin, (G)uanin und (C)ytosin
-        \item Sequencing-Reads: Länge von 
+        \item Sequencing-Reads: Länge von \textasciitilde 250 Proteien-Basenpaaren
         \item Datensätze: FASTQ, FASTA
     \end{itemize}
-
-    
 \end{frame}
 
 
-\begin{frame}
-    \frametitle{Einleitung 2}
+\begin{frame}[fragile]{Einleitung - FASTA Beispiel\footnote{\url{http://www.cbs.dtu.dk/services/NetGene2/fasta.php}}}
+    \begin{minted}{text}
+>HSBGPG Human gene for bone gla protein (BGP)
+GGCAGATTCCCCCTAGACCCGCCCGCACCATGGTCAGGCATGCCCCTCCTCATCGCTGGGCACAGCCCAGAGGGT
+ATAAACAGTGCTGGAGGCTGGCGGGGCAGGCCAGCTGAGTCCTGAGCAGCAGCCCAGCGCAGCCACCGAGACACC
+ATGAGAGCCCTCACACTCCTCGCCCTATTGGCCCTGGCCGCACTTTGCATCGCTGGCCAGGCAGGTGAGTGCCCC
+CACCTCCCCTCAGGCCGCATTGCAGTGGGGGCTGAGAGGAGGAAGCACCATGGCCCACCTCTTCTCACCCCTTTG
+GCTGGCAGTCCCTTTGCAGTCTAACCACCTTGTTGCAGGCTCAATCCATTTGCCCCAGCTCTGCCCTTGCAGAGG
+GAGAGGAGGGAAGAGCAAGCTGCCCGAGACGCAGGGGAAGGAGGATGAGGGCCCTGGGGATGAGCTGGGGTGAAC
+CAGGCTCCCTTTCCTTTGCAGGTGCGAAGCCCAGCGGTGCAGAGTCCAGCAAAGGTGCAGGTATGAGGATGGACC
+TGATGGGTTCCTGGACCCTCCCCTCTCACCCTGGTCCCTCAGTCTCATTCCCCCACTCCTGCCACCTCCTGTCTG
+GCCATCAGGAAGGCCAGCCTGCTCCCCACCTGATCCTCCCAAACCCAGAGCCACCTGATGCCTGCCCCTCTGCTC
+CACAGCCTTTGTGTCCAAGCAGGAGGGCAGCGAGGTAGTGAAGAGACCCAGGCGCTACCTGTATCAATGGCTGGG
+GTGAGAGAAAAGGCAGAGCTGGGCCAAGGCCCTGCCTCTCCGGGATGGTCTGTGGGGGAGCTGCAGCAGGGAGTG
+GCCTCTCTGGGTTGTGGTGGGGGTACAGGCAGCCTGCCCTGGTGGGCACCCTGGAGCCCCATGTGTAGGGAGAGG
+AGGGATGGGCATTTTGCACGGGGGCTGATGCCACCACGTCGGGTGTCTCAGAGCCCCAGTCCCCTACCCGGATCC
+CCTGGAGCCCAGGAGGGAGGTGTGTGAGCTCAATCCGGACTGTGACGAGTTGGCTGACCACATCGGCTTTCAGGA
+GGCCTATCGGCGCTTCTACGGCCCGGTCTAGGGTGTCGCTCTGCTGGCCTGGCCGGCAACCCCAGTTCTGCTCCT
+CTCCAGGCACCCTTCTTTCCTCTTCCCCTTGCCCTTGCCCTGACCTCCCAGCCCTATGGATGTGGGGTCCCCATC
+ATCCCAGCTGCTCCCAAATAAACTCCAGAAG
+    \end{minted}
+\end{frame}
 
+\begin{frame}[fragile]{Einleitung - FASTQ Beispiel\footnote{\url{https://github.com/edawson/rkmh_sim_data}}}
+    \begin{minted}{text}
+631232382/31100220/2202403222222222223125251225244225125230222124223302
+@HPV16|Z109|B2_601_1122_0_1_0_0_15:1:0_11:0:0_71933/2
+CCCCCACTTCCACCACTTATACTGCTACATGGTGTTTCAGTCTCATGGCGCCCTTCTACCTGTAACGATTC
++
+236520202/2132221222221541022222022222323023213421222445242222/12250234
+@HPV16|Z109|B2_388_953_0_1_0_0_10:0:0_11:0:0_e0828/2
+ATCTACGGACTAATATTATTGTCTACACATCCACTAATATCACTCAAGTGGACTACCCAAATACTTTCGTT
++
+3232112242221235221/3321543020232443253222/3122203042202032425044/07245
+@HPV16|Z109|B2_4780_4199_1_0_0_0_11:0:0_3:1:0_ba60c/2
+TTTATTGTTTGTTTTGTTTGTTTTTTAAATAAACTGTTATTACTTAACAATGCGACACAAACGTTCTGCAA
++
+221122234222229205202222232221262370322524352255/3212123232303234422330
+@HPV16|Z109|B2_5953_6522_0_1_0_0_13:0:0_11:1:0_cc11b/1
+GTGTAGGTGTTGAGGTAGGTCGCGGTCAGCCATTAGGTGTGGGCATTAGTGGCCATCCTTTATTAAATAAA
+    \end{minted}
+\end{frame}
+
+\section{Rkmh}
+
+\begin{frame}{Rkmh I}
     \begin{itemize}
-        \item Viral coinfection analysis using a MinHash toolkit
+        \item \textbf{Viral coinfection analysis using a MinHash toolkit \cite{rkmh}}
         \item Human papillomavirus (HPV)
         \item HPV hat viele unterschiedliche Typen bzw. Abstammungslinien
-        \item Davon sind nur einige hoch krebserzeugend
         \item Co-Infektionen verschiedener Abstammungslinien sind üblich
+        \item Davon sind nur einige hoch krebserzeugend
     \end{itemize}
 \end{frame}
 
-\begin{frame}
-    \frametitle{Einleitung 3}
-
-    
+\begin{frame}{Rkmh II}
     \begin{itemize}
-        \item rkmh: klassifiziert reads aus FASTQ-Dateien
-        \item Jeder read wird mit einer Menge von Referenzgenomen verglichen
-        \item rkmh weist jedem read das Referenzgenom zu mit dem es die höchste Übereinstimmung hat
-        \item Für den Vergleich bedient sich rkmh der MinHash-Methode aus dem Bereich der Textanalyse
+        \item rkmh: klassifiziert Reads aus FASTQ-Dateien
+        \item Jeder Read wird mit einer Menge von Referenzgenomen verglichen
+        \item rkmh weist jedem Read das Referenzgenom zu mit dem es die höchste Übereinstimmung hat
+        \item Für den Vergleich bedient sich rkmh der MinHash-Methode  aus dem Bereich der Textanalyse
+        \item \textbf{On the Resemblance and Containment of Documents \cite{minhash}}
     \end{itemize}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Einleitung 4}
-
-    
-    \begin{tikzpicture}
-
-        \def \n {1,2,3}
-        \def \radius {3cm}
-        \def \margin {8} % margin in angles, depends on the radius
-        
-        \foreach \c [count=\x from 0] in {{1,f},{2,o},{3,o},{4,b},{5,a},{6,r}} 
-        {
-            \node[draw, circle] at ({360/\n * (\x - 1)}:\radius) {$\c$};
-            \draw[->, >=latex] ({360/\n * (\x - 1)+\margin}:\radius) 
-              arc ({360/\n * (\x - 1)+\margin}:{360/\n * (\x)-\margin}:\radius);
-        }
-    \end{tikzpicture}
 \end{frame}

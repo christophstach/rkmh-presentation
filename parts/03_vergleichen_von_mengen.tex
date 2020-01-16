@@ -1,28 +1,26 @@
 \section{Vergleichen von Mengen}
 
-\begin{frame}
-    \frametitle{Vergleichen von Mengen - Jaccard Coefficient}
-
-
-    \begin{equation}
-        J(A,B) = \frac{ | A \cap B | }{ | A \cup B | }
-    \end{equation}
-
-    \pause
-
-    \begin{equation}
-        O(n^2)
-    \end{equation}
-
-
-    \pause
-
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.45\textwidth]{images/Intersection_of_sets_A_and_B.png} 
-        \includegraphics[width=0.45\textwidth]{images/Union_of_sets_A_and_B.png}
-        \caption{Schnitt und Vereinigung of zweier Menge $ A $ and $ B $ \cite{intersectionImage,unionImage}}
-    \end{figure}
+\begin{frame}{Vergleichen von Mengen - Jaccard-Koeffizient}
+    \begin{columns} % align columns
+        \begin{column}{.50\textwidth}
+            \begin{itemize}
+                \item Maß zum Vergleichen von zwei Mengen
+                \item Je näher der Jaccard Coefficient gegen 1 geht, desto ähnlicher sind sich die Mengen
+                \item $ J(A,B) = \frac{ | A \cap B | }{ | A \cup B | } $
+                \item Problem: $ O(n^2) $
+                \item Vorheriges Beispiel: $ J(S_3(A),S_3(B)) = \frac{3}{7} \approx 0.43 $
+            \end{itemize}
+        \end{column}
+        \hfill
+        \begin{column}{.50\textwidth}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.40\textwidth]{images/Intersection_of_sets_A_and_B.png} 
+                \includegraphics[width=0.40\textwidth]{images/Union_of_sets_A_and_B.png}
+                \caption{Schnitt und Vereinigung zweier Mengen $ A $ und $ B $ \cite{intersectionImage,unionImage}}
+            \end{figure}        
+        \end{column}
+    \end{columns}
 \end{frame}
 
 
