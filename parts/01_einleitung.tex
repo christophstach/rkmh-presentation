@@ -2,8 +2,9 @@
 
 \begin{frame}{Einleitung}
     \begin{itemize}
-        \item DNA: (A)denin, (T)hymin, (G)uanin und (C)ytosin
-        \item Sequencing-Reads: Länge von \textasciitilde 250 Proteien-Basenpaaren
+        \item DNA: (A)denin, (T)hymin, (G)uanin und (C)ytosin \pause
+        \item Proben können sequenziert \pause
+        \item Reads aus Tesdaten haben eine Länge von \textasciitilde 250 Proteien-Basenpaaren \pause
         \item Datensätze: FASTQ, FASTA
     \end{itemize}
 \end{frame}
@@ -56,20 +57,20 @@ GTGTAGGTGTTGAGGTAGGTCGCGGTCAGCCATTAGGTGTGGGCATTAGTGGCCATCCTTTATTAAATAAA
 
 \begin{frame}{Rkmh I}
     \begin{itemize}
-        \item \textbf{Viral coinfection analysis using a MinHash toolkit \cite{rkmh}}
-        \item Human papillomavirus (HPV)
-        \item HPV hat viele unterschiedliche Typen bzw. Abstammungslinien
-        \item Co-Infektionen verschiedener Abstammungslinien sind üblich
+        \item \textbf{Viral coinfection analysis using a MinHash toolkit \cite{rkmh}} \pause
+        \item Human papillomavirus (HPV) \pause
+        \item HPV hat viele unterschiedliche Typen bzw. Abstammungslinien \pause
+        \item Co-Infektionen verschiedener Abstammungslinien sind üblich \pause
         \item Davon sind nur einige hoch krebserzeugend
     \end{itemize}
 \end{frame}
 
 \begin{frame}{Rkmh II}
     \begin{itemize}
-        \item rkmh klassifiziert Reads aus FASTQ-Dateien
-        \item Jeder Read wird mit einer Menge von Referenzgenomen verglichen
-        \item rkmh weist jedem Read das Referenzgenom zu mit dem es die höchste Übereinstimmung hat
-        \item Für den Vergleich bedient sich rkmh der MinHash-Methode  aus dem Bereich der Textanalyse
+        \item rkmh klassifiziert Reads aus FASTQ-Dateien \pause
+        \item Jeder Read wird mit einer Menge von Referenzgenomen verglichen \pause
+        \item rkmh weist jedem Read das Referenzgenom zu mit dem es die höchste Übereinstimmung hat \pause
+        \item Für den Vergleich bedient sich rkmh der MinHash-Methode  aus dem Bereich der Textanalyse \pause
         \item \textbf{On the Resemblance and Containment of Documents \cite{minhash}}
     \end{itemize}
 \end{frame}

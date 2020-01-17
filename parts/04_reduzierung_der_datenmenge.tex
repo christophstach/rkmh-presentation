@@ -2,15 +2,15 @@
 
 \begin{frame}{MinHash I}
     \begin{itemize}
-        \item Algorithmus aus der Textanalyse
-        \item Wurde erstmalig verwendet um eine große Menge von Webseiten miteinader zu vergleichen
-        \item Arbeitet mit k-shingles
-        \item Nährt den Jaccard-Koeffizienten
+        \item Algorithmus aus der Textanalyse \pause
+        \item Wurde erstmalig verwendet um eine große Menge von Webseiten miteinader zu vergleichen \pause
+        \item Arbeitet mit k-shingles \pause
+        \item Nährt den Jaccard-Koeffizienten an
     \end{itemize}
 \end{frame}
 
-\begin{frame}{MinHash II}
-    Die Mengen der geshingelten werden als Matrix $ M $ dargestellt.
+\begin{frame}{MinHash II - Beispiel}
+    Die Mengen der geshingelten werden als Matrix $ M $ dargestellt. \pause
     
     \begin{example}
         \begin{equation*}
@@ -29,8 +29,8 @@
     \end{example}
 \end{frame}
 
-\begin{frame}{MinHash III}
-    Matrix $ P $ aus zufälligen Zeilenindexpermutationen bilden.
+\begin{frame}{MinHash III - Beispiel}
+    Matrix $ P $ aus zufälligen Zeilenindexpermutationen bilden. \pause
     
     \begin{example}
         \begin{equation*}
@@ -49,8 +49,8 @@
     \end{example}
 \end{frame}
 
-\begin{frame}{MinHash IV}
-    Jedes $ M $ wird nach der Zeilenindexpermutation sortiert. Der Index der ersten Zeile in $ M $ welcher den Wert $ 1 $ hat wird in die Signatur $ S $ übertragen.
+\begin{frame}{MinHash IV - Beispiel}
+    Jedes $ M $ wird nach der Zeilenindexpermutation sortiert. Der Index der ersten Zeile in $ M $ welcher den Wert $ 1 $ hat wird in die Signatur $ S $ übertragen. \pause
 
 
     \begin{example}
@@ -70,15 +70,15 @@
 
 \begin{frame}{MinHash V}
     \begin{itemize}
-        \item Problem: Vorhalten der Permutationen verbraucht viel Arbeitsspeicher
-        \item Lösung: Benutzung von Hash-Funktionen
-        \item Mit Hash-Funktionen können Daten einer Menge \textit{deterministisch-zufällig} sortiert werden
-        \item Beispiel: Hash-Funktion $ h(x) = (2x+1) \mod 6 $ und Menge $ S = \{ 10,11,30,41 \} $
+        \item Problem: Vorhalten der Permutationen verbraucht viel Arbeitsspeicher \pause
+        \item Lösung: Benutzung von Hash-Funktionen \pause
+        \item Mit Hash-Funktionen können Daten einer Menge \textit{deterministisch-zufällig} sortiert werden \pause
+        \item Beispiel: Hash-Funktion $ h(x) = (2x+1) \mod 6 $ und Menge $ S = \{ 10,11,30,41 \} $ \pause
         \item Pro Permutation andere Hash-Funktion
     \end{itemize}
 \end{frame}
 
-\begin{frame}{MinHash VI}
+\begin{frame}{MinHash VI - Hash-Funktionen}
     \begin{example}
         \begin{equation*}
             \begin{split}
@@ -89,17 +89,19 @@
             \end{split}
         \end{equation*}
     \end{example}
+
+    \pause
     
-        \begin{table}[H]
-            \centering
-            \begin{tabular}{| c | c | c | c | c | c | c |}
-                \hline
-                \textbf{Hash} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6}  \\
-                \hline
-                \multirow{2}{*}{\textbf{Elemente}}   & 30 &    & 10 &    & 11 & \\
-                &    &    &    &    & 41  &\\
-                \hline
-            \end{tabular}    
-            \caption{Tashtabelle der Menge $ S $. Jedes Element von $ S $ hat eine unterschiedlichen Hash. Einige Werte erzeugen Kollisionen.}
-        \end{table} 
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{| c | c | c | c | c | c | c |}
+            \hline
+            \textbf{Hash} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6}  \\
+            \hline
+            \multirow{2}{*}{\textbf{Elemente}}   & 30 &    & 10 &    & 11 & \\
+            &    &    &    &    & 41  &\\
+            \hline
+        \end{tabular}    
+        \caption{Hash-Tabelle der Menge $ S $. Jedes Element von $ S $ hat eine unterschiedlichen Hash. Einige Werte erzeugen Kollisionen.}
+    \end{table} 
 \end{frame}
