@@ -17,6 +17,7 @@
 \usepackage{kbordermatrix}
 \usepackage{amsmath}
 \usepackage{etoolbox}
+\usepackage{multirow}
 
 
 \addbibresource{references/images.bib}
@@ -31,11 +32,9 @@
 
 \usetheme[progressbar=foot,sectionpage=none,numbering=fraction,block=fill]{metropolis}
 
-\let\bbordermatrix\kbordermatrix
-\patchcmd{\bbordermatrix}{8.75}{4.75}{}{}
-\patchcmd{\bbordermatrix}{\left(}{\left[}{}{}
-\patchcmd{\bbordermatrix}{\right)}{\right]}{}{}
 
+\renewcommand{\kbldelim}{(}% Left delimiter
+\renewcommand{\kbrdelim}{)}% Right delimiter
 
 \definecolor{HTWGreen}{HTML}{76B900}
 \definecolor{HTWBlue}{HTML}{0082D1}

@@ -1,6 +1,6 @@
 \section{MinHash}
 
-\begin{frame}{MinHash I \cite{minhash}}
+\begin{frame}{MinHash I}
     \begin{itemize}
         \item Algorithmus aus der Textanalyse
         \item Wurde erstmalig verwendet um eine große Menge von Webseiten miteinader zu vergleichen
@@ -9,13 +9,13 @@
     \end{itemize}
 \end{frame}
 
-\begin{frame}{MinHash I \cite{minhash}}
-    Die Mengen der geshingelten werden als Sparse-Matrix $ M $ dargestellt.
+\begin{frame}{MinHash II}
+    Die Mengen der geshingelten werden als Matrix $ M $ dargestellt.
     
     \begin{example}
         \begin{equation*}
             M = 
-            \bbordermatrix{
+            \kbordermatrix{
                 & D_1 & D_2 \\
                 ATG & 1 & 0 \\
                 TGG & 1 & 1 \\
@@ -27,4 +27,79 @@
             }
         \end{equation*}
     \end{example}
+\end{frame}
+
+\begin{frame}{MinHash III}
+    Matrix $ P $ aus zufälligen Zeilenindexpermutationen bilden.
+    
+    \begin{example}
+        \begin{equation*}
+            P =
+            \kbordermatrix{
+                & P_1 & P_2 & P_3 & P_4 & P_5 \\
+                & 0 & 3 & 5 & 4 & 4 \\
+                & 1 & 6 & 4 & 1 & 0 \\
+                & 2 & 2 & 1 & 2 & 3 \\
+                & 3 & 5 & 3 & 6 & 1 \\
+                & 4 & 1 & 2 & 3 & 6 \\
+                & 5 & 0 & 0 & 5 & 2 \\
+                & 6 & 4 & 6 & 0 & 5
+            }
+        \end{equation*}
+    \end{example}
+\end{frame}
+
+\begin{frame}{MinHash IV}
+    Jedes $ M $ wird nach der Zeilenindexpermutation sortiert. Der Index der ersten Zeile in $ M $ welcher den Wert $ 1 $ hat wird in die Signatur $ S $ übertragen.
+
+
+    \begin{example}
+        \begin{equation*}
+            S = 
+            \kbordermatrix{
+                & D_1 & D_2 \\
+                P_1 & 0 & 1 \\
+                P_2 & 1 & 0 \\
+                P_3 & 1 & 1 \\
+                P_4 & 1 & 1 \\
+                P_5 & 1 & 1
+            }
+        \end{equation*}
+    \end{example}
+\end{frame}
+
+\begin{frame}{MinHash V}
+    \begin{itemize}
+        \item Problem: Vorhalten der Permutationen verbraucht viel Arbeitsspeicher
+        \item Lösung: Benutzung von Hash-Funktionen
+        \item Mit Hash-Funktionen können Daten einer Menge \textit{deterministisch-zufällig} sortiert werden
+        \item Beispiel: Hash-Funktion $ h(x) = (2x+1) \mod 6 $ und Menge $ S = \{ 10,11,30,41 \} $
+        \item Pro Permutation andere Hash-Funktion
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{MinHash VI}
+    \begin{example}
+        \begin{equation*}
+            \begin{split}
+                h(10) = (2 * 10 + 1) \mod 6 = 3 \\
+                h(11) = (2 * 11 + 1) \mod 6 = 5 \\
+                h(30) = (2 * 30 + 1) \mod 6 = 1 \\
+                h(41) = (2 * 41 + 1) \mod 6 = 5
+            \end{split}
+        \end{equation*}
+    \end{example}
+    
+        \begin{table}[H]
+            \centering
+            \begin{tabular}{| c | c | c | c | c | c | c |}
+                \hline
+                \textbf{Hash} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6}  \\
+                \hline
+                \multirow{2}{*}{\textbf{Elemente}}   & 30 &    & 10 &    & 11 & \\
+                &    &    &    &    & 41  &\\
+                \hline
+            \end{tabular}    
+            \caption{Tashtabelle der Menge $ S $. Jedes Element von $ S $ hat eine unterschiedlichen Hash. Einige Werte erzeugen Kollisionen.}
+        \end{table} 
 \end{frame}

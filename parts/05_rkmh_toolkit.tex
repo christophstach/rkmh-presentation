@@ -1,9 +1,36 @@
+\section{Rkmh}
+
+\begin{frame}{Rkmh I}
+    \begin{columns} % align columns
+        \begin{column}{.60\textwidth}
+            \begin{itemize}
+                \item Hyperparameter: k-mer-size $ k $, sketch-size $ s $
+                \item Reads und Referenzgenom werden zu k-mers umgewandelt
+                \item k-mers werden gehasht
+                \item Die hash werden sortiert und die ersten $ s $ für den Vergleich genommen
+                \item Weitere Reduzierung der Datenmenge durch Bereitstellung von unterschiedliche Filtern
+            \end{itemize}
+        \end{column}
+        \hfill
+        \begin{column}{.40\textwidth}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.85\textwidth]{images/mash_similarity.png} 
+                \caption{Reduzierung der Datenmenge über MinHash \cite{mashSimilarityImage}}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
 
 
-\begin{frame}{rkmh Toolkit}
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.25\textwidth]{images/mash_similarity.png} 
-        \caption{Reduzierung der Datenmenge über MinHash \cite{mashSimilarityImage}}
-    \end{figure}
+\begin{frame}{Rkmh II}
+    \begin{itemize}
+\item Beispiel Filter\footnote{\url{https://github.com/edawson/rkmh}}: 
+        \begin{itemize}
+            \item --min-kmer-occurence <int>: Entfernt k-mers die nur <int> mal auftreten
+            \item --max-samples <int>: Entfernt k-mers die in mehr als <int> Referenzgenomen auftreten
+        \end{itemize}
+        \item Entwickelt in C++ mit OpenMP
+        \item Hash-Funktion: MurMurHash3\footnote{\url{https://github.com/aappleby/smhasher/wiki/MurmurHash3}}
+    \end{itemize}
 \end{frame}
